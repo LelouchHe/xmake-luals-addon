@@ -69,7 +69,7 @@ function is_mode(mode) end
 ---
 ---[Open in browser](https://xmake.io/#/manual/conditions?id=is_kind)
 ---
----@param kind string|"static"|"shared" Test target kind
+---@param kind string|"binary"|"static"|"shared" Test target kind
 ---@return boolean
 function is_kind(kind) end
 

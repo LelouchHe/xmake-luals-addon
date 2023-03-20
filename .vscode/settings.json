@@ -1,7 +1,0 @@
-{
-    "Lua.workspace.library": [
-        "library"
-    ],
-    "Lua.runtime.version": "LuaJIT",
-    "Lua.workspace.checkThirdParty": false
-}

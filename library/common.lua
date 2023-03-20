@@ -1,4 +1,5 @@
 ---@meta
+---xmake version: 2.7.7
 
 ---Supported operation system
 ---@alias OperationSystem string|"windows"|"linux"|"android"|"macosx"|"ios"

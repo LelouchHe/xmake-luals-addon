@@ -1,7 +1,5 @@
-# Lua Language Server Addon Template
-This is a template for an [addon](https://github.com/LuaLS/lua-language-server/wiki/Addons) that can be used by the [Lua Language Server](https://github.com/LuaLS/lua-language-server).
+This is the Lua-LS addon for [Xmake](https://xmake.io/), a cross-platform build utility based on Lua.
 
-## Publishing to Addon Manager
-The [addon manager](https://github.com/LuaLS/lua-language-server/discussions/1965) for VS Code allows users to easily install and manage their addons. The addons are pulled from [LLS-Addons](https://github.com/LuaLS/LLS-Addons).
+It's used for xmake.lua, its major configuration file.
 
-To add your addon to the addon manager, please read the [README for LLS-Addons](https://github.com/LuaLS/LLS-Addons#readme).
+Users need to enable this addon from Lua Addon Manager, and select "Lua" as the language mode for this file, to enable the intellisense from Lua-LS.

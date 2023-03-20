@@ -15,8 +15,8 @@ function is_os(os) end
 ---
 ---[Open in browser](https://xmake.io/#/manual/conditions?id=is_arch)
 ---
----@param arch string Checked architecture
----@param ... string Checked architectures
+---@param arch Architecture Checked architecture
+---@param ... Architecture Checked architectures
 ---@return boolean
 function is_arch(arch, ...) end
 
@@ -54,8 +54,8 @@ function is_subhost(subhost, ...) end
 ---
 ---[Open in browser](https://xmake.io/#/manual/conditions?id=is_subarch)
 ---
----@param subarch string Checked subarch
----@param ... string Checked architectures of current host subsystem environment
+---@param subarch Subarchitecture Checked subarch
+---@param ... Subarchitecture Checked architectures of current host subsystem environment
 ---@return boolean
 function is_subarch(subarch, ...) end
 

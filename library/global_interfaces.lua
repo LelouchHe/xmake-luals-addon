@@ -6,9 +6,10 @@
 ---
 ---[Open in browser](https://xmake.io/#/manual/global_interfaces?id=includes)
 ---
+---@param dir_or_file string Sub-project directory or file
 ---@param ... string Sub-project directories or files
 ---@return nil
-function includes(...) end
+function includes(dir_or_file, ...) end
 
 ---
 ---Set project name
@@ -43,18 +44,20 @@ function set_xmakever(version) end
 ---
 ---[Open in browser](https://xmake.io/#/manual/global_interfaces?id=add_moduledirs)
 ---
+---@param dir string Module directory
 ---@param ... string Module directories
 ---@return nil
-function add_moduledirs(...) end
+function add_moduledirs(dir, ...) end
 
 ---
 ---Add plugin directories
 ---
 ---[Open in browser](https://xmake.io/#/manual/global_interfaces?id=add_plugindirs)
 ---
+---@param dir string Plugin directory
 ---@param ... string Plugin directories
 ---@return nil
-function add_plugindirs(...) end
+function add_plugindirs(dir, ...) end
 
 ---
 ---Get the configuration value
@@ -80,23 +83,10 @@ function set_config(key, value) end
 ---
 ---[Open in browser](https://xmake.io/#/manual/global_interfaces?id=add_requires)
 ---
+---@param name string Required dependency package name
 ---@param ... string Required dependency package names
 ---@return nil
-function add_requires(...) end
-
----@class PackageConfigs
----@field shared boolean Whether to enable dynamic library
----@field pic boolean Whether to enable pic
----@field vs_runtime "MT"|"MD"|"MTd"|"MDd" MSVC runtime
----@field [string] any Other package configs
-
----@class AddRequires_Extra
----@field optional boolean Whether the package is optional
----@field system boolean Whether to disable same system package
----@field verify boolean Whether to verify this package
----@field debug boolean Whether to enable debug mode
----@field alias string Another name for this package
----@field configs PackageConfigs Package configs
+function add_requires(name, ...) end
 
 ---
 ---Add the required dependency packages
@@ -104,14 +94,9 @@ function add_requires(...) end
 ---[Open in browser](https://xmake.io/#/manual/global_interfaces?id=add_requires)
 ---
 ---@param name string Required dependency package name
----@param extra? AddRequires_Extra
+---@param option? RequiresOption Options
 ---@return nil
-function add_requires(name, extra) end
-
----@class AddRequireconfs_Extra
----@field override boolean Whether to override existing configs
----@field version string Package version
----@field configs PackageConfigs Package configs
+function add_requires(name, option) end
 
 ---
 ---Set the configuration of the specified dependent package
@@ -119,18 +104,19 @@ function add_requires(name, extra) end
 ---[Open in browser](https://xmake.io/#/manual/global_interfaces?id=add_requireconfs)
 ---
 ---@param name string Package name
----@param extra AddRequireconfs_Extra
+---@param option RequireconfsOption Option
 ---@return nil
-function add_requireconfs(name, extra) end
+function add_requireconfs(name, option) end
 
 ---
 ---Add 3rd package repositories
 ---
 ---[Open in browser](https://xmake.io/#/manual/global_interfaces?id=add_repositories)
 ---
----@param ... string Repo name and repo location
+---@param  repo string Repo name and location
+---@param ... string Repo names and repo locations
 ---@return nil
-function add_repositories(...) end
+function add_repositories(repo, ...) end
 
 ---
 ---Add 3rd package repositories
@@ -138,16 +124,16 @@ function add_repositories(...) end
 ---[Open in browser](https://xmake.io/#/manual/global_interfaces?id=add_repositories)
 ---
 ---@param repo string Repo name and repo location, separated by " "
----@param extra? { rootdir: string } Set root directory of repo
+---@param option? RepositoriesOption Option
 ---@return nil
-function add_repositories(repo, extra) end
+function add_repositories(repo, option) end
 
 ---
 ---Set the default compilation platform
 ---
 ---[Open in browser](https://xmake.io/#/manual/global_interfaces?id=set_defaultplat)
 ---
----@param platform string|"windows"|"linux"|"macosx"|"android"|"iphoneos"|"watchos" Default platform
+---@param platform Platform Default platform
 ---@return nil
 function set_defaultplat(platform) end
 
@@ -156,16 +142,17 @@ function set_defaultplat(platform) end
 ---
 ---[Open in browser](https://xmake.io/#/manual/global_interfaces?id=set_defaultarchs)
 ---
----@param ... string Default arthitecture
+---@param arch Architecture Default architecture
+---@param ... Architecture Default arthitectures
 ---@return nil
-function set_defaultarchs(...) end
+function set_defaultarchs(arch, ...) end
 
 ---
 ---Set the default compilation mode
 ---
 ---[Open in browser](https://xmake.io/#/manual/global_interfaces?id=set_defaultmode)
 ---
----@param mode string
+---@param mode CompilationMode Default compilation mode
 ---@return nil
 function set_defaultmode(mode) end
 
@@ -174,24 +161,27 @@ function set_defaultmode(mode) end
 ---
 ---[Open in browser](https://xmake.io/#/manual/global_interfaces?id=set_allowedplats)
 ---
+---@param platform Platform Allowed platform
 ---@param ... string Allowed platforms
 ---@return nil
-function set_allowedplats(...) end
+function set_allowedplats(platform, ...) end
 
 ---
 ---Set the platform architecture that allows compilation
 ---
 ---[Open in browser](https://xmake.io/#/manual/global_interfaces?id=set_allowedarchs)
 ---
----@param ... string Allowed architectures
+---@param arch Architecture Allowed architecture
+---@param ... Architecture Allowed architectures
 ---@return nil
-function set_allowedarchs(...) end
+function set_allowedarchs(arch, ...) end
 
 ---
 ---Set the list of allowed compilation modes
 ---
 ---[Open in browser](https://xmake.io/#/manual/global_interfaces?id=set_allowedmodes)
 ---
+---@param mode CompilationMode Allowed mode
 ---@param ... string Allowed modes
 ---@return nil
-function set_allowedmodes(...) end
+function set_allowedmodes(mode, ...) end

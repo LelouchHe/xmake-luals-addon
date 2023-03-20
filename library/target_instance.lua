@@ -9,7 +9,7 @@ local Target = {}
 ---
 ---[Open in browser](https://xmake.io/#/manual/target_instance?id=targetname)
 ---
----@return string name
+---@return string
 function Target:name() end
 
 ---
@@ -17,35 +17,36 @@ function Target:name() end
 ---
 ---[Open in browser](https://xmake.io/#/manual/target_instance?id=targetget)
 ---
----@param
----@return
-function Target:get() end
+---@param key string Key
+---@return string
+function Target:get(key) end
 
 ---
 ---Set the values of the target by name (If you just want to add values use [target:add](#targetadd))
 ---
 ---[Open in browser](https://xmake.io/#/manual/target_instance?id=targetset)
 ---
----@param
----@return
-function Target:set() end
+---@param key string Key
+---@param value any Value
+---@return nil
+function Target:set(key, value) end
 
 ---
 ---Add to the values of the target by name
 ---
 ---[Open in browser](https://xmake.io/#/manual/target_instance?id=targetadd)
 ---
----@param
----@return
-function Target:add() end
+---@param key string Key
+---@param value any Value
+---@return nil
+function Target:add(key, value) end
 
 ---
 ---Get the target program type
 ---
 ---[Open in browser](https://xmake.io/#/manual/target_instance?id=targetkind)
 ---
----@param
----@return
+---@return TargetKind
 function Target:kind() end
 
 ---
@@ -53,62 +54,27 @@ function Target:kind() end
 ---
 ---[Open in browser](https://xmake.io/#/manual/target_instance?id=targetis_plat)
 ---
----@param
----@return
-function Target:is_plat() end
-
----
----Is the current platform android?
----
----[Open in browser](https://xmake.io/#/manual/target_instance?id=targetis_plat)
----
----@param
----@return
-function Target:is_plat() end
-
----
----Is the current platform windows, linux or macosx?
----
----[Open in browser](https://xmake.io/#/manual/target_instance?id=targetis_plat)
----
----@param
----@return
-function Target:is_plat() end
+---@param platform Platform Platform name
+---@param ... Platform Platform names
+---@return boolean
+function Target:is_plat(platform, ...) end
 
 ---
 ---Is the current architecture one of the given architectures
 ---
 ---[Open in browser](https://xmake.io/#/manual/target_instance?id=targetis_arch)
 ---
----@param
----@return
-function Target:is_arch() end
-
----
----Is the current architecture x86
----
----[Open in browser](https://xmake.io/#/manual/target_instance?id=targetis_arch)
----
----@param
----@return
-function Target:is_arch() end
-
----
----Is the current architecture x64 or x86_64
----
----[Open in browser](https://xmake.io/#/manual/target_instance?id=targetis_arch)
----
----@param
----@return
-function Target:is_arch() end
+---@param arch Architecture Architecture name
+---@param ... Architecture Architecture names
+---@return boolean
+function Target:is_arch(arch, ...) end
 
 ---
 ---Get the target file path
 ---
 ---[Open in browser](https://xmake.io/#/manual/target_instance?id=targettargetfile)
 ---
----@param
----@return
+---@return string
 function Target:targetfile() end
 
 ---
@@ -116,8 +82,7 @@ function Target:targetfile() end
 ---
 ---[Open in browser](https://xmake.io/#/manual/target_instance?id=targettargetdir)
 ---
----@param
----@return
+---@return string
 function Target:targetdir() end
 
 ---
@@ -125,8 +90,7 @@ function Target:targetdir() end
 ---
 ---[Open in browser](https://xmake.io/#/manual/target_instance?id=targetbasename)
 ---
----@param
----@return
+---@return string
 function Target:basename() end
 
 ---
@@ -134,8 +98,7 @@ function Target:basename() end
 ---
 ---[Open in browser](https://xmake.io/#/manual/target_instance?id=targetfilename)
 ---
----@param
----@return
+---@return string
 function Target:filename() end
 
 ---
@@ -143,8 +106,7 @@ function Target:filename() end
 ---
 ---[Open in browser](https://xmake.io/#/manual/target_instance?id=targetinstalldir)
 ---
----@param
----@return
+---@return string
 function Target:installdir() end
 
 ---
@@ -152,8 +114,7 @@ function Target:installdir() end
 ---
 ---[Open in browser](https://xmake.io/#/manual/target_instance?id=targetautogendir)
 ---
----@param
----@return
+---@return string
 function Target:autogendir() end
 
 ---
@@ -161,26 +122,16 @@ function Target:autogendir() end
 ---
 ---[Open in browser](https://xmake.io/#/manual/target_instance?id=targetobjectfile)
 ---
----@param
----@return
-function Target:objectfile() end
+---@param source string Source file name
+---@return string
+function Target:objectfile(source) end
 
 ---
 ---Get all source files
 ---
 ---[Open in browser](https://xmake.io/#/manual/target_instance?id=targetsourcebatches)
 ---
----@param
----@return
-function Target:sourcebatches() end
-
----
----TODO
----
----[Open in browser](https://xmake.io/#/manual/target_instance?id=targetsourcebatches)
----
----@param
----@return
+---@return { [string]: SourceBatch }
 function Target:sourcebatches() end
 
 ---
@@ -188,8 +139,7 @@ function Target:sourcebatches() end
 ---
 ---[Open in browser](https://xmake.io/#/manual/target_instance?id=targetobjectfiles)
 ---
----@param
----@return
+---@return string[]
 function Target:objectfiles() end
 
 ---
@@ -197,17 +147,7 @@ function Target:objectfiles() end
 ---
 ---[Open in browser](https://xmake.io/#/manual/target_instance?id=targetheaderfiles)
 ---
----@param
----@return
-function Target:headerfiles() end
-
----
----TODO
----
----[Open in browser](https://xmake.io/#/manual/target_instance?id=targetheaderfiles)
----
----@param
----@return
+---@return string[]
 function Target:headerfiles() end
 
 ---
@@ -215,6 +155,5 @@ function Target:headerfiles() end
 ---
 ---[Open in browser](https://xmake.io/#/manual/target_instance?id=targetscriptdir)
 ---
----@param
----@return
+---@return string
 function Target:scriptdir() end

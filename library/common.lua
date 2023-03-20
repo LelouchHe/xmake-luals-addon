@@ -145,3 +145,10 @@
 ---@field kind TargetKind Set target kind
 ---@field files string[] Set target files
 ---@field includedirs string Set target include directories
+
+---@alias TaskMenuOption string[]
+
+---@class TaskMenu
+---@field usage string Menu usage
+---@field description string Menu description
+---@field options TaskMenuOption[] Menu options

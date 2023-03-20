@@ -146,6 +146,33 @@
 ---@field files string[] Set target files
 ---@field includedirs string Set target include directories
 
+---@alias TargetHook fun(target: Target): nil
+
+---Built-in build script
+---@class TaskOpt
+---@field origin fun(target: Target, file: string|SourceBatch, opt: TaskOpt): nil Run built-in build script
+
+---TODO: fix signature
+---Built-in batch commands
+---@class TaskBatchCommand
+---@field show fun(message: string, ...: string): nil Print messages
+---@field show_progress fun(progress: number, message: string, file: string): nil Print progress
+---@field vrunv fun(cmd: string, args: string[]): nil Run command with run environments
+---@field mkdir fun(dir: string): nil Create directory
+---@field compile fun(source: string, object: string, option: table): nil Compile source files
+---@field link fun(object: string, target: string, option: table): nil Link object files
+---@field add_depfiles fun(file: string, ...: string): nil Add depending files
+---@field add_depvalues fun(value: string, ...: string): nil Add depending values
+---@field add_depmtime fun(...: any): nil 
+---@field add_depcache fun(...: any): nil
+
+---@alias TargetBuildFileHook fun(target: Target, file: string, opt: TaskOpt): nil
+---@alias TargetBuildFilesHook fun(target: Target, files: SourceBatch, opt: TaskOpt): nil
+
+---@alias TargetBuildcmdFileHook fun(target: Target, cmds: TaskBatchCommand, file: string, opt: TaskOpt): nil
+---@alias TargetBuildcmdFilesHook fun(target: Target, cmds: TaskBatchCommand, files: SourceBatch, opt: TaskOpt): nil
+
+
 ---@alias TaskMenuOption string[]
 
 ---@class TaskMenu

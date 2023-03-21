@@ -65,7 +65,7 @@ function set_extensions(ext, ...) end
 ---
 ---[Open in browser](https://xmake.io/#/manual/custom_rule?id=ruleon_load)
 ---
----@param func TargetHook Function to run for custom load 
+---@param func TargetHook Function to run for custom load
 ---@return nil
 function on_load(func) end
 

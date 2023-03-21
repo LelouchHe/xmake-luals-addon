@@ -18,5 +18,4 @@ Run `stylua library/` to fix lua styles
 ## How to update existing addon
 
 1. Fork [LLS-Addons](https://github.com/LuaLS/LLS-Addons.git)
-2. Create addon folder in addons/$name
-4. Run `git submodule update --remote addones/$name/module`
+2. Run `git submodule update --remote addones/$name/module`

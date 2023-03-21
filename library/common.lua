@@ -118,7 +118,7 @@
 ---@field objecetfiles string[] Get the list of object files
 ---@field dependfiles string[] Get the list of dependent files
 
----@class PackageConfigs
+---@class PackageConfig
 ---@field shared boolean Whether to enable dynamic library
 ---@field pic boolean Whether to enable pic
 ---@field vs_runtime Runtime MSVC runtime
@@ -130,12 +130,12 @@
 ---@field verify boolean Whether to verify this package
 ---@field debug boolean Whether to enable debug mode
 ---@field alias string Another name for this package
----@field configs PackageConfigs Package configs
+---@field configs PackageConfig Package configs
 
 ---@class RequireconfsOption
 ---@field override boolean Whether to override existing configs
 ---@field version string Package version
----@field configs PackageConfigs Package configs
+---@field configs PackageConfig Package configs
 
 ---@class RepositoriesOption
 ---@field rootdir string Set root directory of repo
@@ -145,3 +145,85 @@
 ---@field kind TargetKind Set target kind
 ---@field files string[] Set target files
 ---@field includedirs string Set target include directories
+
+---@alias TargetHook fun(target: Target): nil
+
+---Built-in build script
+---@class TargetOpt
+---@field origin fun(target: Target, file: string|SourceBatch, opt: TargetOpt): nil Run built-in build script
+
+---TODO: fix signature
+---Built-in batch commands
+---@class BatchCommand
+---@field show fun(message: string, ...: string): nil Print messages
+---@field show_progress fun(progress: number, message: string, file: string): nil Print progress
+---@field vrunv fun(cmd: string, args: string[]): nil Run command with run environments
+---@field mkdir fun(dir: string): nil Create directory
+---@field compile fun(source: string, object: string, option: table): nil Compile source files
+---@field link fun(object: string, target: string, option: table): nil Link object files
+---@field add_depfiles fun(file: string, ...: string): nil Add depending files
+---@field add_depvalues fun(value: string, ...: string): nil Add depending values
+---@field add_depmtime fun(...: any): nil 
+---@field add_depcache fun(...: any): nil
+
+---@alias TargetBuildFileHook fun(target: Target, file: string, opt: TargetOpt): nil
+---@alias TargetBuildFilesHook fun(target: Target, files: SourceBatch, opt: TargetOpt): nil
+
+---@alias TargetBuildcmdFileHook fun(target: Target, cmds: BatchCommand, file: string, opt: TargetOpt): nil
+---@alias TargetBuildcmdFilesHook fun(target: Target, cmds: BatchCommand, files: SourceBatch, opt: TargetOpt): nil
+
+---@alias TaskMenuOption string[]
+
+---@class TaskMenu
+---@field usage string Menu usage
+---@field description string Menu description
+---@field options TaskMenuOption[] Menu options
+
+---@alias PackageKind string|"binary"|"toolchain"|"library"|"template"|"headeronly"
+
+---@class PackageUrlOption
+---@field version fun(version: string): string Convert version
+---@field alias string Alias of this package link
+---@field http_headers string[] Http headers for this package link
+
+---@class PackageOpt
+---@field sourcedir string Source directory
+---@field url string Package url
+---@field url_alias string Package url alias
+
+---@alias PackageHook fun(package: Package): nil
+---@alias PackageOptHook fun(package: Package, opt: PackageOpt): nil
+
+---@alias Component any
+
+---@alias PackageComponentHook fun(package: Package, component: Component): nil
+
+---@class PackageConfigDefinition
+---@field description string Description
+---@field default any Default value for this config
+---@field values any[] Value options
+
+---@class Version
+local Version = {}
+---@return string
+function Version:major() end
+---@return string
+function Version:major() end
+---@return string
+function Version:major() end
+
+---@class PackagePatch
+---@field url string Url of the patch
+---@field sha256 string sha256 of the patch
+
+---@class PackageCheckOptionConfig
+---@field defines string Macro defines
+---@field languages LanguageStandard Language
+---@field [string] any Others
+
+---@class PackageCheckOption
+---@field includes string Include file
+---@field configs PackageCheckOptionConfig Config
+
+---@class PackageCheckSnippet
+---@field test string Checked snippet

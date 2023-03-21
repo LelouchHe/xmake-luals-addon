@@ -1,15 +1,6 @@
 ---@meta
 ---[project_target](https://xmake.io/#/manual/project_target)
 
----@alias TargetHook fun(target: Target): nil
-
----Built-in build script
----@class Opt
----@field origin fun(target: Target, file: string|SourceBatch, opt: Opt): nil Run built-in build script
-
----@alias TargetBuildFileHook fun(target: Target, file: string, opt: Opt): nil
----@alias TargetBuildFilesHook fun(target: Target, files: SourceBatch, opt: Opt): nil
-
 ---
 ---Define a project target
 ---

@@ -48,7 +48,7 @@
 
 ---Supported access specifier
 ---@class AccessSpecifier
----@field public public boolean 
+---@field public public boolean
 ---@field public private boolean
 ---@field public inteface boolean
 ---@field public inherit boolean
@@ -163,7 +163,7 @@
 ---@field link fun(object: string, target: string, option: table): nil Link object files
 ---@field add_depfiles fun(file: string, ...: string): nil Add depending files
 ---@field add_depvalues fun(value: string, ...: string): nil Add depending values
----@field add_depmtime fun(...: any): nil 
+---@field add_depmtime fun(...: any): nil
 ---@field add_depcache fun(...: any): nil
 
 ---@alias TargetBuildFileHook fun(target: Target, file: string, opt: TargetOpt): nil
